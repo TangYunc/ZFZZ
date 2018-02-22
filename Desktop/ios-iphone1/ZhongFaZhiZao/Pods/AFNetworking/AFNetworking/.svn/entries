@@ -1,0 +1,126 @@
+10
+
+dir
+0
+http://tangyunchuan@repos.app.cecb2b.com:61080/cecb2b_code/projects-2016/app-2016/ios-iphone/ZhongFaZhiZao/Pods/AFNetworking/AFNetworking
+http://tangyunchuan@repos.app.cecb2b.com:61080/cecb2b_code
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0c665cae-584b-4138-950b-3dfc2665fec9
+
+AFHTTPSessionManager.m
+file
+
+
+
+add
+
+AFURLResponseSerialization.m
+file
+
+
+
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+AFNetworkReachabilityManager.h
+file
+
+
+
+add
+
+AFURLSessionManager.m
+file
+
+
+
+add
+
+AFNetworking.h
+file
+
+
+
+add
+
+AFSecurityPolicy.h
+file
+
+
+
+add
+
+AFURLRequestSerialization.h
+file
+
+
+
+add
+
+AFNetworkReachabilityManager.m
+file
+
+
+
+add
+
+AFSecurityPolicy.m
+file
+
+
+
+add
+
+AFHTTPSessionManager.h
+file
+
+
+
+add
+
+AFURLRequestSerialization.m
+file
+
+
+
+add
+
+AFURLResponseSerialization.h
+file
+
+
+
+add
+
+AFURLSessionManager.h
+file
+
+
+
+add
+

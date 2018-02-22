@@ -1,0 +1,168 @@
+10
+
+dir
+0
+http://tangyunchuan@repos.app.cecb2b.com:61080/cecb2b_code/projects-2016/app-2016/ios-iphone/ZhongFaZhiZao/Pods/AFNetworking/UIKit+AFNetworking
+http://tangyunchuan@repos.app.cecb2b.com:61080/cecb2b_code
+add
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0c665cae-584b-4138-950b-3dfc2665fec9
+
+UIProgressView+AFNetworking.m
+file
+
+
+
+add
+
+UIRefreshControl+AFNetworking.m
+file
+
+
+
+add
+
+UIWebView+AFNetworking.h
+file
+
+
+
+add
+
+AFAutoPurgingImageCache.h
+file
+
+
+
+add
+
+UIButton+AFNetworking.h
+file
+
+
+
+add
+
+AFNetworkActivityIndicatorManager.h
+file
+
+
+
+add
+
+UIImageView+AFNetworking.h
+file
+
+
+
+add
+
+UIWebView+AFNetworking.m
+file
+
+
+
+add
+
+AFAutoPurgingImageCache.m
+file
+
+
+
+add
+
+AFImageDownloader.h
+file
+
+
+
+add
+
+UIButton+AFNetworking.m
+file
+
+
+
+add
+
+AFNetworkActivityIndicatorManager.m
+file
+
+
+
+add
+
+UIImage+AFNetworking.h
+file
+
+
+
+add
+
+UIImageView+AFNetworking.m
+file
+
+
+
+add
+
+UIActivityIndicatorView+AFNetworking.h
+file
+
+
+
+add
+
+AFImageDownloader.m
+file
+
+
+
+add
+
+UIKit+AFNetworking.h
+file
+
+
+
+add
+
+UIActivityIndicatorView+AFNetworking.m
+file
+
+
+
+add
+
+UIProgressView+AFNetworking.h
+file
+
+
+
+add
+
+UIRefreshControl+AFNetworking.h
+file
+
+
+
+add
+
