@@ -15,6 +15,8 @@
 #import "MainWebViewController.h"
 
 #import <AlipaySDK/AlipaySDK.h>
+//微信SDK头文件
+#import "WXApi.h"
 
 //融云IM
 #import <RongIMKit/RongIMKit.h>
@@ -41,6 +43,7 @@
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaHandler.h"
 
+#import "WXApi.h"
 //Bugly
 #import <Bugly/Bugly.h>
 
@@ -59,7 +62,7 @@
 #define URLStr     @"http://wap.cecb2b.com"
 
 
-@interface AppDelegate ()<JPUSHRegisterDelegate,RCIMUserInfoDataSource>{
+@interface AppDelegate ()<JPUSHRegisterDelegate,RCIMUserInfoDataSource,WXApiDelegate>{
     
     MainWebViewController *rootVC;
 }
@@ -326,6 +329,7 @@
 
 - (void)configUSharePlatforms
 {
+    
     /* 设置微信的appKey和appSecret */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx12e7a4deae04bf2f" appSecret:@"7a2b375d76d3a27e751ac0d46cc780c0" redirectURL:@"http://mobile.umeng.com/social"];
     /*
@@ -341,7 +345,8 @@
     
     /* 设置新浪的appKey和appSecret */
     [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_Sina appKey:@"3445863821"  appSecret:@"6bf6c33751681230e0a3f0d8c67ddf54" redirectURL:@"https://sns.whalecloud.com/sina2/callback"];
-    
+ 
+    [WXApi registerApp:@"wx12e7a4deae04bf2f"];
 }
 
 #pragma mark - umeng分享
@@ -349,33 +354,90 @@
 #if __IPHONE_OS_VERSION_MAX_ALLOWED > 100000
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options
 {
-    //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响。
-    BOOL result = [[UMSocialManager defaultManager]  handleOpenURL:url options:options];
-    if (!result) {
-        // 其他如支付等SDK的回调
+    /*
+    返回的结果示例:
+    po url 微信支付
+wx12e7a4deae04bf2f://pay/?returnKey=&ret=0
+    
+    po url 第三方登录
+wx12e7a4deae04bf2f://oauth?code=001J9HPU1SYnGS05xpOU1hpHPU1J9HPS&lang=zh_HK&country=CN&state=
+    
+    po url 微信分享
+wx12e7a4deae04bf2f://platformId=wechat
+     */
+    if ([[url absoluteString] hasPrefix:@"wx12e7a4deae04bf2f://pay"]) {
+        
+        BOOL WXPayResult = [WXApi handleOpenURL:url delegate:self];
+        return WXPayResult;
+        
+    }else{
+        // 友盟SDK的回调
+        //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+        BOOL UMShareResult = [[UMSocialManager defaultManager]  handleOpenURL:url options:options];
+        if (!UMShareResult) {
+            // 其他如支付宝支付等SDK的回调
+        }
+        return UMShareResult;
     }
-    return result;
+    
 }
 
 #endif
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
-    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
-    if (!result) {
-        // 其他如支付等SDK的回调
+    
+    // 首先判断是不是微信支付的回调
+    // NOTE:微信的支付回调就是按下面格式开头的，前面是APPId,判断URL是不是这个开头
+    if ([[url absoluteString] hasPrefix:@"wx12e7a4deae04bf2f://pay"]) {
+        
+        BOOL WXPayResult = [WXApi handleOpenURL:url delegate:self];
+        return WXPayResult;
+        
+    }else{
+        // 友盟SDK的回调
+        //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+        BOOL UMShareResult = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+        if (!UMShareResult) {
+            // 其他如支付宝支付等SDK的回调
+            /*
+            //跳转支付宝钱包进行支付，处理支付结果
+            if ([url.host isEqualToString:@"safepay"]) {
+                
+                [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+                    
+                    //NSLog(@"result = %@",resultDic);
+                    if ([resultDic[@"resultStatus"] isEqualToString:@"9000"]) {
+                        
+                        // 后台验证支付结果
+                        [[NSNotificationCenter defaultCenter]postNotificationName:ALIPAYRESULT object:nil userInfo:@{@"result":resultDic[@"result"]}];
+                    }
+                }];
+                return YES;
+            }
+         */
+        }
+        return UMShareResult;
     }
-    return result;
+    
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
-    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];
-    if (!result) {
-        // 其他如支付等SDK的回调
+    if ([[url absoluteString] hasPrefix:@"wx12e7a4deae04bf2f://pay"]) {
+        
+        BOOL WXPayResult = [WXApi handleOpenURL:url delegate:self];
+        return WXPayResult;
+        
+    }else{
+        // 友盟SDK的回调
+        //6.3的新的API调用，是为了兼容国外平台(例如:新版facebookSDK,VK等)的调用[如果用6.2的api调用会没有回调],对国内平台没有影响
+        BOOL UMShareResult = [[UMSocialManager defaultManager] handleOpenURL:url];
+        if (!UMShareResult) {
+            // 其他如支付宝支付等SDK的回调
+        }
+        return UMShareResult;
     }
-    return result;
 }
 
 
@@ -715,5 +777,26 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 //    [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
 }
 
+-(void)onResp:(BaseResp*)resp
+{
+    NSString *strMsg;
+    strMsg = [NSString stringWithFormat:@"errcode:%d", resp.errCode];
+    
+    if([resp isKindOfClass:[PayResp class]]){
+        //支付返回结果
+        switch (resp.errCode) {
+            case WXSuccess:
+                strMsg = @"支付结果：成功！";
+                NSLog(@"%@",strMsg);
+                //                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+                break;
+            default:
+                strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+                NSLog(@"%@",strMsg);
+                
+                break;
+        }
+    }
+}
 
 @end

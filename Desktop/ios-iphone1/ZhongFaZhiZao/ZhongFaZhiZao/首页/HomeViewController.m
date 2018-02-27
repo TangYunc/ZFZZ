@@ -38,6 +38,7 @@
 #import "ZBarcodeViewController.h"
 #import "QRCodeReaderViewController.h"
 
+#import "WXPayViewController.h"
 #define margins 8
 
 @interface HomeViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,QRCodeReaderDelegate>{
@@ -221,6 +222,12 @@
 - (void)createNavgationView {
 
     self.navigationView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, screenWidth, SafeAreaTopHeight)];
+    if(SafeAreaTopHeight > 64){
+        NSLog(@"当前为iPhoneX");
+    }else{
+        NSLog(@"X一下系列:%d",SafeAreaTopHeight);
+    }
+    
     self.navigationView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bar"]];
 
     [self.view addSubview:self.navigationView];
@@ -1214,7 +1221,9 @@ else if (indexPath.section == 1){
 //    [self.navigationController pushViewController:QRvc animated:YES];
     
 //    [WKProgressHUD popMessage:@"敬请期待" inView:self.view duration:HUD_DURATION animated:YES];
-
+    WXPayViewController *vcCtrl = [[WXPayViewController alloc] init];
+    [self.navigationController pushViewController:vcCtrl animated:YES];
+    /*
     QRCodeReaderViewController *reader = [QRCodeReaderViewController new];\
     reader.modalPresentationStyle = UIModalPresentationFormSheet;
     reader.delegate = self;
@@ -1226,7 +1235,7 @@ else if (indexPath.section == 1){
     }];
     
     //[self presentViewController:reader animated:YES completion:NULL];
-    [self.navigationController pushViewController:reader animated:YES];
+    [self.navigationController pushViewController:reader animated:YES];*/
 }
 
 #pragma mark - QRCodeReader Delegate Methods
@@ -1398,7 +1407,7 @@ else if (indexPath.section == 1){
     
     float y = scrollView.contentOffset.y;
     
-    
+    NSLog(@"--------%f",y);
     if(y<70){
         self.navigationView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bar"]];
         

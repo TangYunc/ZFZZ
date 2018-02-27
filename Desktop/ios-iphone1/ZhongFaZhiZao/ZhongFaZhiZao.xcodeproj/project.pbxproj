@@ -16,6 +16,9 @@
 		2D65EA4D202AA6F000C793D7 /* libSocialSMS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D65EA4C202AA6F000C793D7 /* libSocialSMS.a */; };
 		2D65EA4F202AA6FF00C793D7 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D65EA4E202AA6FF00C793D7 /* libSocialWeChat.a */; };
 		2D65EA51202AA71000C793D7 /* libUMSocialLog.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D65EA50202AA71000C793D7 /* libUMSocialLog.a */; };
+		2DDBBD2E2044048400EB3B49 /* WXPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBBD2D2044048400EB3B49 /* WXPayViewController.m */; };
+		2DDBBD3420440F3200EB3B49 /* TNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBBD3320440F3200EB3B49 /* TNetworking.m */; };
+		2DDBBD67204542A900EB3B49 /* NetworkingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DDBBD66204542A900EB3B49 /* NetworkingTests.m */; };
 		560365F61DDB115400332DD2 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560365F51DDB115400332DD2 /* CFNetwork.framework */; };
 		560365F81DDB116000332DD2 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560365F71DDB116000332DD2 /* CoreFoundation.framework */; };
 		560365FA1DDB116900332DD2 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560365F91DDB116900332DD2 /* CoreTelephony.framework */; };
@@ -461,6 +464,11 @@
 		2D65EA4C202AA6F000C793D7 /* libSocialSMS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSocialSMS.a; path = Pods/UMCShare/UMShare/SocialLibraries/SMS/libSocialSMS.a; sourceTree = "<group>"; };
 		2D65EA4E202AA6FF00C793D7 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSocialWeChat.a; path = Pods/UMCShare/UMShare/SocialLibraries/WeChat/libSocialWeChat.a; sourceTree = "<group>"; };
 		2D65EA50202AA71000C793D7 /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libUMSocialLog.a; path = Pods/UMCShare/UMShare/UMSocialSDKPlugin/libUMSocialLog.a; sourceTree = "<group>"; };
+		2DDBBD2C2044048400EB3B49 /* WXPayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WXPayViewController.h; sourceTree = "<group>"; };
+		2DDBBD2D2044048400EB3B49 /* WXPayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXPayViewController.m; sourceTree = "<group>"; };
+		2DDBBD3220440F3200EB3B49 /* TNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNetworking.h; sourceTree = "<group>"; };
+		2DDBBD3320440F3200EB3B49 /* TNetworking.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNetworking.m; sourceTree = "<group>"; };
+		2DDBBD66204542A900EB3B49 /* NetworkingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkingTests.m; sourceTree = "<group>"; };
 		45698911F677C0EBCD06A0CC /* Pods-ZhongFaZhiZao.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZhongFaZhiZao.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZhongFaZhiZao/Pods-ZhongFaZhiZao.debug.xcconfig"; sourceTree = "<group>"; };
 		560365F51DDB115400332DD2 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		560365F71DDB116000332DD2 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -1151,6 +1159,8 @@
 			children = (
 				560366511DE444F700332DD2 /* NSNetworking.h */,
 				560366521DE444F700332DD2 /* NSNetworking.m */,
+				2DDBBD3220440F3200EB3B49 /* TNetworking.h */,
+				2DDBBD3320440F3200EB3B49 /* TNetworking.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1457,6 +1467,7 @@
 		567B612B1DCADFF9004D1CFE /* ZhongFaZhiZaoTests */ = {
 			isa = PBXGroup;
 			children = (
+				2DDBBD66204542A900EB3B49 /* NetworkingTests.m */,
 				567B612C1DCADFF9004D1CFE /* ZhongFaZhiZaoTests.m */,
 				567B612E1DCADFF9004D1CFE /* Info.plist */,
 			);
@@ -1606,6 +1617,8 @@
 				56CFD72C1E026E7800D18340 /* View */,
 				567B626A1DD087A6004D1CFE /* HomeViewController.h */,
 				567B626B1DD087A6004D1CFE /* HomeViewController.m */,
+				2DDBBD2C2044048400EB3B49 /* WXPayViewController.h */,
+				2DDBBD2D2044048400EB3B49 /* WXPayViewController.m */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -2688,6 +2701,7 @@
 				567B62141DD020A0004D1CFE /* MBProgressHUD+MJ.m in Sources */,
 				5697C8991E0E7AE0008A1D98 /* SupplyScrollCollectionViewCell.m in Sources */,
 				561AC01A1DE812F1009C8EC3 /* StartDiagmView.m in Sources */,
+				2DDBBD2E2044048400EB3B49 /* WXPayViewController.m in Sources */,
 				5697C8021E08D0DF008A1D98 /* CustomButton.m in Sources */,
 				56CFD73E1E026EFF00D18340 /* ElectronicCollectionViewCell.m in Sources */,
 				560955B51DF7FB2D00DA0B72 /* VfLoginViewController.m in Sources */,
@@ -2733,6 +2747,7 @@
 				567B61171DCADFF9004D1CFE /* AppDelegate.m in Sources */,
 				56045FE91DF1827000BB5EB9 /* WKWaitingProgressHUD.m in Sources */,
 				56045FEC1DF1850800BB5EB9 /* UIView+CPView.m in Sources */,
+				2DDBBD3420440F3200EB3B49 /* TNetworking.m in Sources */,
 				560366531DE444F700332DD2 /* NSNetworking.m in Sources */,
 				567B626C1DD087A6004D1CFE /* HomeViewController.m in Sources */,
 				560955971DF6AF5E00DA0B72 /* PwLoginView.m in Sources */,
@@ -2768,6 +2783,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				567B612D1DCADFF9004D1CFE /* ZhongFaZhiZaoTests.m in Sources */,
+				2DDBBD67204542A900EB3B49 /* NetworkingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2921,7 +2937,8 @@
 				CODE_SIGN_ENTITLEMENTS = ZhongFaZhiZao/ZhongFaZhiZao.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Push Services: com.cecbb.app";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 67CW5W5X73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZhongFaZhiZao/Others",
@@ -2966,7 +2983,8 @@
 				CODE_SIGN_ENTITLEMENTS = ZhongFaZhiZao/ZhongFaZhiZao.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Push Services: com.cecbb.app";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 67CW5W5X73;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ZhongFaZhiZao/Others",

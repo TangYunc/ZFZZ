@@ -27,9 +27,9 @@ PODS:
   - RongCloudIM/IMKit (2.8.27):
     - RongCloudIM/IMLib
   - RongCloudIM/IMLib (2.8.27)
-  - SDWebImage (4.3.0):
-    - SDWebImage/Core (= 4.3.0)
-  - SDWebImage/Core (4.3.0)
+  - SDWebImage (4.3.1):
+    - SDWebImage/Core (= 4.3.1)
+  - SDWebImage/Core (4.3.1)
   - UMCAnalytics (5.4.1):
     - UMCCommon
   - UMCCommon (1.4.1)
@@ -55,13 +55,10 @@ PODS:
   - UMCShare/Social/SMS (6.8.2):
     - UMCCommon
     - UMCShare/Core
-  - UMCShare/Social/WeChat (6.8.2):
-    - UMCCommon
-    - UMCShare/Core
-    - UMCShare/Social/ReducedWeChat
   - UMCShare/UI (6.8.2):
     - UMCCommon
     - UMCShare/Core
+  - WechatOpenSDK (1.8.1)
 
 DEPENDENCIES:
   - AFNetworking
@@ -76,10 +73,11 @@ DEPENDENCIES:
   - SDWebImage
   - UMCAnalytics
   - UMCShare/Social/QQ
+  - UMCShare/Social/ReducedWeChat
   - UMCShare/Social/Sina
   - UMCShare/Social/SMS
-  - UMCShare/Social/WeChat
   - UMCShare/UI
+  - WechatOpenSDK
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
@@ -91,11 +89,12 @@ SPEC CHECKSUMS:
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
   QRCodeReaderViewController: e8f27d035b3e72b1d4b1c61ff66458287e3be0ff
   RongCloudIM: 9993b47342d7ce2c338733470d3dfd8cecd38de1
-  SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
+  SDWebImage: 09808bac78357b39f8db4ea360c7b5534d785ef4
   UMCAnalytics: 44e0bb2f442b7aaf97d1c924b58798b612f2c13d
   UMCCommon: ed0b882a939c45850f6803a5837698572a3e9b96
   UMCShare: ab74e3c818cd305846609b15b0daf36872213c28
+  WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
 
-PODFILE CHECKSUM: 59151c3ebc5c664df05028af74f3e69ef110629e
+PODFILE CHECKSUM: 58b21a748770e0af7396516ca0def1d57cbd5671
 
 COCOAPODS: 1.4.0
